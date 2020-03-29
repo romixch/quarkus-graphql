@@ -1,0 +1,16 @@
+FROM frolvlad/alpine-glibc:alpine-3.9_glibc-2.29
+
+RUN mkdir /app
+WORKDIR /app
+COPY build/*-runner /app/application
+
+# set up permissions for user `1001`
+RUN chmod 775 /app /app/application \
+  && chown -R 1001 /app \
+  && chmod -R "g+rwX" /app \
+  && chown -R 1001:root /app
+
+EXPOSE 8080
+USER 1001
+
+CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
