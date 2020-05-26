@@ -27,11 +27,11 @@ If you want to build an _über-jar_, just add the `--uber-jar` option to the com
 This depends on if you installed GraalVM on your machine or not. If you don't you can still use it. Docker is your friend.
 
 ### No GraalVM
-Run the native executable build in a container using: `./gradlew buildNative --docker-build=true`.
+Run the native executable build in a container using: `./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true`.
 You can then build a docker image and execute a container using `./buildImageAndRunContainer.sh`.
 
 ### Local GaalVM installation
-You can create a native executable using: `./gradlew buildNative`.
+You can create a native executable using: `./gradlew build -Dquarkus.package.type=native`.
 You can then execute your native executable with: `./build/quarkus.graphql-1.0.0-SNAPSHOT-runner`
 
 ## Quarkus Native Image Specifics

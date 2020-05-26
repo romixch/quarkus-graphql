@@ -34,10 +34,3 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
-
-
-buildNative {
-    additionalBuildArgs = [
-            '-H:ResourceConfigurationFiles=./resources-config.json'
-    ]
-}
